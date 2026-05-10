@@ -3,16 +3,26 @@
 #include <cola.h>
 #include <listas.h>
 #include <pila.h>
-//Lectura de txt
+
+Node *buscar ():
 
 //PLAY
+Node *play (){
+    char solicitud[50];
+    printf ("Ingrese el nombre de la lista o canción a reproducir.");
+    scanf ("%s", solicitud);
+}
 //Se recibe el nombre de una canción o lista
-////Eliminación de la reproducción actual
-////Creación de lista SE en el caso de una lista de reproducción
-////Se crea también
+
+////Se recorre el archivo abierto en busqueda del nombre (primera instancia)
+////Si está después del salto de línea es una lista (está luego del catálogo)
+//Creación de lista SE en el caso de una lista de reproducción
+////Recorrer la línea guardando lo que hay entre ":" o "-" como contenido de nodos
+///Eliminación de la reproducción actual
+///Si algún elemento no es encontrado, error
 
 //QUEUE
-//Se agrega a una cola el elemento
+//Se agrega a la cola "queue" el elemento, luego de encontrarlo en el archivo
 
 //NEXT
 
@@ -21,7 +31,7 @@
 //SHUFFLE
 
 //LOOP
-////Activar:Enlazar ultimo elemento al primero
+////Activar:Enlazar ultimo elemento al primero en la lista de reproducciones
 ////Desactivar:Desenlazar
 
 //CLEAR QUEUE
@@ -33,20 +43,19 @@
 //MAIN
 int main(){
     printf("BIENVENIDO AL REPRODUCTOR DE MÚSICA REAL NO FAKE");
-    
+
     //Apertura del archivo con las canciones
-    char *archivo;
+    char archivo[30];
     FILE *catalogo;
     printf("Ingrese el nombre del archivo con extensión.");
     scanf("%s",archivo);
-    FILE* catalogo = (archivo,"r");
+    catalogo = fopen(archivo,"r");
     while (catalogo==NULL){
         printf("No se encontró el archivo. Intente nuevamente.");
-        scanf("%s",archivo);
-        FILE* catalogo = (archivo,"r");
+        scanf("%s", archivo);
+        catalogo = fopen(archivo,"r");
     }
 
-    
     ////Crear estructuras que se usaran luego
     //Lista DE: Reproducciones (hay que editar el struct de nodo para crear el nodo
     //doblemente enlazado)
