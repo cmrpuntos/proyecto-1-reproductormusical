@@ -1,0 +1,93 @@
+Proyecto I: Sistema de Control de Reproducción Musical
+
+-Archivos de texto con catalogo de reproducción
+-Cargar nuevas listas
+-Permitir consultar catalogo, listas, y reproducción actual
+-Operaciones...Play, Queue, next, back, shuffle, loop, clear queue, clear history
+
+1.Poner en cola: Insertar una canción o lista al final de la secuencia de reproducción actual.
+2.Historial: Registro de pistas que han finalizado su reproducción y permitir el retorno a la canción anterior.
+3.Bucle: Estado que repite la secuencia actual cuando se termine.
+4.Shuffle: Reorganizar las pistas disponibles para una secuencia de reproducción aleatoria.
+
+Listas de reproducción
+Canciones en cola
+Reproducción circular, lista circular
+#####################################
+1 play "nombre": En caso de haber una reproducción actual, la detiene,
+limpia la secuencia de espera e inicia inmediatamente la canción o lista
+seleccionada.
+
+-liberar queue y current será la canción o lista
+
+2 queue "nombre": Añade una canción o lista luego de la canción en
+reproducción, sin perder las canciones que le seguían a la lista de
+reproducción original, si fuera el caso.
+
+-se agrega nombre a la cola
+
+3 next: Finaliza la canción actual, la traslada al historial y avanza a la
+siguiente en la cola.
+
+-si hay elementos en cola se reproducen sino se pone la siguiente canción de lista (si no hay más se detiene la reproducción
+
+4 back: Recupera la última canción del historial para reproducirla
+nuevamente.
+
+-tomar del historial o retroceder en lista doblemente enlazada
+
+5 shuffle: Reordena de forma aleatoria la secuencia de pistas que se
+encuentran actualmente en espera de ser reproducidas. Al quitar el
+shuffle, estas deben permanecer en el mismo orden que estaban.
+
+-
+
+6 loop: Activa o desactiva la reproducción circular. Al estar activo y llegar
+al final de la cola, el sistema reinicia la reproducción desde la primera
+canción de dicha secuencia.
+
+-
+
+7 clear queue: Vacía la secuencia de pistas pendientes. Nótese que la
+canción que se encuentra sonando actualmente no debe verse
+afectada por este comando.
+
+-liberar memoria de queue
+
+8 clear history: Elimina todos los registros de la navegación previa.
+
+-liberar memoria del historial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
